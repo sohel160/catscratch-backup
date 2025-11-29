@@ -1,0 +1,16 @@
+proxies:
+  - name: "Cats-scratch"
+    type: http
+    server: 113.11.126.254
+    port: 23237
+
+proxy-groups:
+  - name: "Proxy"
+    type: select
+    proxies:
+      - Cats-scratch
+
+rules:
+  - NETWORK,UDP,DIRECT
+  - MATCH,Proxy
+  
