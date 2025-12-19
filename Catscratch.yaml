@@ -1,8 +1,8 @@
 proxies:
   - name: "Cats-scratch"
-    type: http
-    server: 113.11.126.254
-    port: 23237
+    type: socks5
+    server: 113.11.1.109
+    port: 11911
 
 proxy-groups:
   - name: "Proxy"
