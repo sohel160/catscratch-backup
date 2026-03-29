@@ -1,4 +1,3 @@
-
 proxies:
   - name: "YourProxy"
     type: http
