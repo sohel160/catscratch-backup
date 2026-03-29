@@ -1,16 +1,22 @@
-proxies:
-  - name: "Cats-scratch"
-    type: socks5
-    server: 113.11.1.109
-    port: 11911
 
+proxies:
+  - name: "YourProxy"
+    type: http
+    server: 144.48.108.121
+    port: 5452
+  - name: "nice"
+    type: http
+    server: 144.48.108.122
+    port: 5452
 proxy-groups:
-  - name: "Proxy"
-    type: select
+  - name: "FREE"
+    type: load-balance
+    strategy: round-robin
     proxies:
-      - Cats-scratch
+      - "YourProxy"
+      - "nice"
+    url: "http://www.gstatic.com/generate_204" # Required for load-balance/health checks
+    interval: 10
 
 rules:
-  - NETWORK,UDP,DIRECT
-  - MATCH,Proxy
-  
+  - MATCH,FREE
