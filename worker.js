@@ -17,7 +17,8 @@ export default {
       "ClashMeta",
       "ClashforWindows",
       "ClashX",
-      "Stash"
+      "Stash",
+      "FiClash"
     ]
 
     let allowed = false
@@ -48,9 +49,6 @@ proxy-providers:
 proxy-groups:
 - name: "FREE"
   type: select
-  proxies: 
-  - proxy1
-  - proxy2
   use:
   - myprovider
 
@@ -61,5 +59,6 @@ rules:
     return new Response(config, {
       headers: { "Content-Type": "text/plain" }
     })
+
   }
 }
