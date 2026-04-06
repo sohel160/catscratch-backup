@@ -47,8 +47,10 @@ proxy-providers:
 
 proxy-groups:
 - name: "FREE"
-  type: load-balance
-  strategy: round-robin
+  type: select
+  proxies: 
+  - proxy1
+  - proxy2
   use:
   - myprovider
 
