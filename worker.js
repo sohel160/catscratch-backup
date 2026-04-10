@@ -38,7 +38,7 @@ export default {
 proxy-providers:
   myprovider:
     type: http
-    url: "https://catscratch-backup.darkblazespuky.workers.dev/?token=abc123"
+    url: "https://catscratch-backups.darkblazespuky.workers.dev/?token=abc123"
     interval: 3600
     path: ./proxies.yaml
     health-check:
