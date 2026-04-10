@@ -47,13 +47,13 @@ proxy-providers:
       interval: 10
 
 proxy-groups:
-- name: "FREE"
+- name: "SPEED❤️"
   type: select
   use:
   - myprovider
 
 rules:
-- MATCH,FREE
+- MATCH,SPEED❤️
 `
 
     return new Response(config, {
