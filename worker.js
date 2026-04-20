@@ -47,19 +47,20 @@ proxy-providers:
       interval: 10
 
 proxy-groups:
-- name: "SPEED❤️"
-  type: select
-  use:
-  - "ALL√"
--name: "ALL√"
- type: load-balance
- strategy: round-robin
- interval: 10
- use:
- - myprovider
- 
+  - name: "SPEED❤️"
+    type: select
+    use:
+      - "ALL√"
+
+  - name: "ALL√"
+    type: load-balance
+    strategy: round-robin
+    interval: 10
+    use:
+      - myprovider
+
 rules:
-- MATCH,SPEED❤️
+  - MATCH,SPEED❤️
 `
 
     return new Response(config, {
