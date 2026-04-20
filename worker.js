@@ -50,8 +50,14 @@ proxy-groups:
 - name: "SPEED❤️"
   type: select
   use:
-  - myprovider
-
+  - "ALL√"
+-name: "ALL√"
+ type: load-balance
+ strategy: round-robin
+ interval: 10
+ use:
+ - myprovider
+ 
 rules:
 - MATCH,SPEED❤️
 `
