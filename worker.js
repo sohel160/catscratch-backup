@@ -47,7 +47,13 @@ proxy-providers:
       interval: 10
 
 proxy-groups:
-  - name: "ALL√"
+
+  - name: "ALL"
+    type: select
+    use:
+      - myprovider
+
+  - name: "LOAD-BALANCE"
     type: load-balance
     strategy: round-robin
     interval: 10
@@ -57,7 +63,8 @@ proxy-groups:
   - name: "SPEED❤️"
     type: select
     proxies:
-      - "ALL√"
+      - LOAD-BALANCE
+      - ALL
 
 rules:
   - MATCH,SPEED❤️
