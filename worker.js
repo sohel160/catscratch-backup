@@ -55,9 +55,9 @@ proxy-groups:
 
   - name: "LOAD-BALANCE"
     type: load-balance
-    strategy: consistent-hashing
-    interval: 10
-    tolerance: 100
+    strategy: round-robin
+    interval: 300
+    tolerance: 50
     use:
       - myprovider
 
