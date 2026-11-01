@@ -31,41 +31,14 @@ export default {
     // SOCKS5 SERVER LIST
     // ==========================================
     const servers = [
-      {
-        tag: "proxy1",
-        server: "103.178.73.1",
-        port: 9169,
-        username: "movip21",
-        password: "movip21"
-      },
-      {
-        tag: "proxy2",
-        server: "103.146.134.225",
-        port: 9169,
-        username: "movip21",
-        password: "movip21"
-      },
-      {
-        tag: "proxy3",
-        server: "103.118.152.36",
-        port: 9169,
-        username: "movip21",
-        password: "movip21"
-      },
-      {
-        tag: "proxy4",
-        server: "103.111.224.46",
-        port: 9169,
-        username: "movip21",
-        password: "movip21"
-      },
-      {
-        tag: "proxy5",
-        server: "202.5.36.149",
-        port: 9169,
-        username: "movieproxy",
-        password: "movieproxy"
-      }
+    { name: "HTTP-01", type: http, server: 180.149.232.209, port: 6212 },
+    { name: "HTTP-02", type: http, server: 203.188.252.228, port: 11611 },
+    { name: "HTTP-03", type: http, server: 113.212.109.208, port: 8945 },
+    { name: "HTTP-04", type: http, server: 113.212.109.209, port: 8945 },
+    { name: "HTTP-05", type: http, server: 119.40.90.1, port: 11611 },
+    { name: "HTTP-02", type: http, server: 203.188.252.228, port: 11611 },
+    { name: "HTTP-07", type: http, server: 113.212.109.211, port: 8945 },
+    { name: "HTTP-08", type: http, server: 180.149.235.24, port: 1994 }
     ];
 
     // ==========================================
