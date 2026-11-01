@@ -16,43 +16,35 @@ export default {
       "Hiddify",
       "hiddify",
       "sing-box",
-      "SingBox",
-      "Clash",
-      "clash",
-      "okhttp",
-      "Dalvik"
+      "SingBox"
     ];
-
+{ name: \"HTTP-07\", type: \"http\", server: \"113.212.109.211\", port: 8945 },
     if (!allowedUA.some(a => ua.includes(a))) {
       return new Response("404 Not Found", { status: 404 });
     }
 
     // ==========================================
-    // SOCKS5 SERVER LIST
+    // HTTP PROXY SERVER LIST
     // ==========================================
     const servers = [
-    { name: "HTTP-01", type: http, server: 180.149.232.209, port: 6212 },
-    { name: "HTTP-02", type: http, server: 203.188.252.228, port: 11611 },
-    { name: "HTTP-03", type: http, server: 113.212.109.208, port: 8945 },
-    { name: "HTTP-04", type: http, server: 113.212.109.209, port: 8945 },
-    { name: "HTTP-05", type: http, server: 119.40.90.1, port: 11611 },
-    { name: "HTTP-02", type: http, server: 203.188.252.228, port: 11611 },
-    { name: "HTTP-07", type: http, server: 113.212.109.211, port: 8945 },
-    { name: "HTTP-08", type: http, server: 180.149.235.24, port: 1994 }
+      { name: "HTTP-01", type: "http", server: "180.149.232.209", port: 6212 },
+      { name: "HTTP-02", type: "http", server: "203.188.252.228", port: 11611 },
+      { name: "HTTP-03", type: "http", server: "113.212.109.208", port: 8945 },
+      { name: "HTTP-04", type: "http", server: "113.212.109.209", port: 8945 },
+      { name: "HTTP-05", type: "http", server: "119.40.90.1", port: 11611 },
+      { name: "HTTP-06", type: "http", server: "203.188.252.228", port: 11611 },
+      { name: "HTTP-07", type: "http", server: "113.212.109.211", port: 8945 },
+      { name: "HTTP-08", type: "http", server: "180.149.235.24", port: 1994 }
     ];
 
     // ==========================================
     // SING-BOX OUTBOUND GENERATOR
     // ==========================================
     const outbounds = servers.map(server => ({
-      type: "socks",
-      tag: server.tag,
+      type: "http",
+      tag: server.name,
       server: server.server,
-      server_port: server.port,
-      version: "5",
-      username: server.username,
-      password: server.password,
-      network: "tcp"
+      server_port: server.port
     }));
 
     // ==========================================
@@ -60,9 +52,7 @@ export default {
     // ==========================================
     if (url.pathname === "/proxies") {
       return new Response(
-        JSON.stringify({
-          outbounds
-        }, null, 2),
+        JSON.stringify({ outbounds }, null, 2),
         {
           headers: {
             "Content-Type": "application/json; charset=utf-8",
@@ -137,7 +127,7 @@ export default {
         {
           type: "urltest",
           tag: "proxy-auto",
-          outbounds: servers.map(s => s.tag),
+          outbounds: servers.map(s => s.name),
           url: "http://www.gstatic.com/generate_204",
           interval: "1m",
           tolerance: 50,
@@ -149,7 +139,7 @@ export default {
           tag: "proxy-manual",
           outbounds: [
             "proxy-auto",
-            ...servers.map(s => s.tag)
+            ...servers.map(s => s.name)
           ],
           default: "proxy-auto",
           interrupt_exist_connections: false
@@ -202,4 +192,3 @@ export default {
     });
   }
 };
-
