@@ -16,9 +16,10 @@ export default {
       "Hiddify",
       "hiddify",
       "sing-box",
-      "SingBox"
+      "SingBox",
+      "Dalvik"
     ];
-{ name: \"HTTP-07\", type: \"http\", server: \"113.212.109.211\", port: 8945 },
+
     if (!allowedUA.some(a => ua.includes(a))) {
       return new Response("404 Not Found", { status: 404 });
     }
